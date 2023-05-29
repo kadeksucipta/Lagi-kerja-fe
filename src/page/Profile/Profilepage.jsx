@@ -247,7 +247,7 @@ const Profilepage = () => {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDcwMjRlMjY4NDdjYjc1NjM0ZDA1NjgiLCJmdWxsX25hbWUiOiJuaXRhIiwiZW1haWwiOiJuaXRhQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiY3VzdG9tZXJfaWQiOjIsImlhdCI6MTY4NTA3MTIwNH0.tlXkNIEOY1hqoag8v9A5sIFUfY23ANXrkOoQ01gf7k8`,
+        Authorization: `Bearer ${token}`,
         Accept: "application/json",
         "Content-Type": "application/json;charset=utf-8",
       },
@@ -548,8 +548,8 @@ const Profilepage = () => {
                  <Card.Text>EMAIL : {item.email}</Card.Text>
                </div>
               ))}
-              <hr />
-            <Pdf />
+              {/* <hr /> */}
+            {/* <Pdf /> */}
             <hr />
             <Card.Title>
               <strong>Work Experience</strong>

@@ -70,7 +70,7 @@ const Tambahskill = () => {
       method: "GET",
       body: formData,
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDZmMjg3MGJlMGJhNTNiYzFhOTU1MDciLCJmdWxsX25hbWUiOiJrYWRlayBheWhhIiwiZW1haWwiOiJrYWRlazQ1QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjoxLCJpYXQiOjE2ODUwMDY5MTV9.WwuuCSjCCdRD40zzLFXko7ccaOsjPoyBVkFNmURHdGI`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
