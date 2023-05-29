@@ -1,0 +1,3 @@
+export const ADD_TO_NOTICE = "ADD_TO_NOTICE"
+export const REMOVE_FROM_NOTICE = "REMOVE_FROM_NOTICE"
+export const SET_NOTICE = "SET_NOTICE"

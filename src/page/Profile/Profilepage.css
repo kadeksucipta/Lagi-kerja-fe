@@ -1,0 +1,84 @@
+.header-profile {
+    background: radial-gradient(circle at top right, #EF5DAB, #A5A6F6);
+    color: white;
+}
+.card-profileatas {
+    display: flex;
+    justify-content: center;
+    width: 35%;
+}
+.card-profilecenter {
+    justify-content: center;
+    align-items: center;
+}
+.isi {
+    text-align: center;
+}
+.footer-profile {
+    background: radial-gradient(circle at top right, #EF5DAB, #A5A6F6);
+    color: white;
+    height: 50px;
+    text-align: center;
+}
+.atur-box {
+    display: flex;
+    margin-top: 20px;
+}
+.card-bio {
+    display: flex;
+    justify-content: center;
+    width: 62%;
+    margin-left: 20px;
+}
+.skill {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-skill {
+    border-radius: 50px;
+    background: rgb(224, 224, 224);
+    border: 1px solid transparent;
+    color: #A5A6F6;
+}
+.btn-save {
+    width: 100%;
+    background: radial-gradient(circle at top right, #EF5DAB, #A5A6F6);
+    border: 1px solid transparent;
+    margin-top: 50px;
+}
+.parent-imgprofile {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .atur-box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+    }
+    .card-profileatas {
+        width: 100%;
+    }
+    .card-bio {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .child-card {
+        display: flex;
+        justify-content: center;
+    }
+}
+.pdf-container {
+    width: 100%;
+    height: 900px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

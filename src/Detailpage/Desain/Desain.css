@@ -1,0 +1,33 @@
+.detail-desainimg {
+    max-width: 100%;
+    width: 100%;
+    height: 70vh;
+}
+.btn-detaildesain {
+    background: radial-gradient(circle at top right, #EF5DAB, #A5A6F6);
+    color: white;
+    border: 1px solid transparent;
+    width: 100%;
+    cursor: pointer;
+}
+.btn-detaildesain:hover {
+    background: radial-gradient(circle at top right, #A5A6F6, #EF5DAB);
+    color: white;
+    border: 1px solid transparent;
+    width: 100%;
+}
+.title-desain {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+    .detail-desainimg {
+        height: 45vh;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .detail-desainimg {
+        height: 35vh;
+    }
+}
