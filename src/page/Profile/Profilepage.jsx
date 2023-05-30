@@ -110,28 +110,13 @@ const Profilepage = () => {
     setSelectedImage();
   };
 
-  const imageChangeCv = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
-
-  const onSubmitCv = (e) => {
-    e.preventDefault();
-    alert(URL.createObjectURL(selectedImage));
-  };
-
-  const removeSelectedImageCv = () => {
-    setSelectedImage();
-  };
-
   const fetchProfile = (formData) => {
     const token = localStorage.getItem("token");
     fetch(`https://lagi-kerja-production.up.railway.app/auth/me`, {
       method: "GET",
       body: formData,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
         Accept: "application/json",
         "Content-Type": "application/json",
       },
@@ -262,7 +247,7 @@ const Profilepage = () => {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
         Accept: "application/json",
         "Content-Type": "application/json;charset=utf-8",
       },
@@ -325,7 +310,7 @@ const Profilepage = () => {
     <React.Fragment>
       <Navbar className="nav-portal" expand="lg">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand style={{cursor: "pointer"}} onClick={() => goToHome()}>
             <img
               src={logolk}
               width="35"
@@ -384,15 +369,12 @@ const Profilepage = () => {
               <Nav.Link active>
                 <FontAwesomeIcon icon={faUser} />
               </Nav.Link>
-              <Nav.Link onClick={() => goToHome()}>Home</Nav.Link>
+              {/* <Nav.Link >Home</Nav.Link> */}
               <Nav.Link>
                 <FontAwesomeIcon icon={faBell} />
                 <Badge pill bg="danger">
                   0
                 </Badge>
-              </Nav.Link>
-              <Nav.Link onClick={() => goToTambahloker()}>
-                <FontAwesomeIcon icon={faPlus} />
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -570,7 +552,7 @@ const Profilepage = () => {
                 <Card.Text>EMAIL : {item.email}</Card.Text>
               </div>
             ))}
-            {/* <hr /> */}
+            <hr />
             <Pdf />
             
             <hr />

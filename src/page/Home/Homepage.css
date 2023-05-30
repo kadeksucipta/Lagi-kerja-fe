@@ -43,6 +43,7 @@ body {
 }
 .card-job {
     margin-left: 20px;
+    width: 25rem;
 }
 .tag-job {
     background: rgb(255, 255, 255);
@@ -84,5 +85,15 @@ body {
 @media only screen and (max-width: 768px) {
     .search-home {
         width: 80%;
+    }
+    .card-job {
+        margin-left: 0;
+        width: 35rem;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .card-job {
+        margin-left: 0;
+        width: 100%;
     }
 }

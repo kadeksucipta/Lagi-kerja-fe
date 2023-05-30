@@ -75,7 +75,7 @@ const Education = () => {
       method: "GET",
       body: formData,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
       },
     })
       .then((res) => res.json())
@@ -115,7 +115,7 @@ const Education = () => {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
         Accept: "application/json",
         "Content-Type": "application/json;charset=utf-8",
       },
@@ -175,7 +175,7 @@ const Education = () => {
     <React.Fragment>
       <Navbar className="nav-portal" expand="lg">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand style={{cursor: "pointer"}} onClick={() => goToHome()}>
           <img
               src={logolk}
               width="35"
@@ -234,16 +234,12 @@ const Education = () => {
               <Nav.Link active>
                 <FontAwesomeIcon icon={faUser} />
               </Nav.Link>
-              <Nav.Link onClick={() => goToHome()}>Home</Nav.Link>
               <Nav.Link>
                 <FontAwesomeIcon icon={faBell} />
                 <Badge pill bg="danger">
                   0
                 </Badge>
               </Nav.Link>
-              {/* <Nav.Link onClick={() => goToTambahloker()}>
-                <FontAwesomeIcon icon={faPlus} />
-              </Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

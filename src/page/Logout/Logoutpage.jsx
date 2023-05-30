@@ -33,7 +33,7 @@ const Logoutpage = () => {
     fetch(`https://lagi-kerja-production.up.railway.app/auth/me`, {
       method: "GET",
       body: formData,
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ` },
     })
       .then((res) => res.json())
       .then((data) => {

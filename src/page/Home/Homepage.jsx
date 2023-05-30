@@ -228,7 +228,7 @@ const Homegpage = () => {
               <Nav.Link onClick={() => goToProfile()}>
                 <FontAwesomeIcon icon={faUser} />
               </Nav.Link>
-              <Nav.Link active>Home</Nav.Link>
+              {/* <Nav.Link active>Home</Nav.Link> */}
               <Nav.Link>
                 <FontAwesomeIcon icon={faBell} />
                 <Badge pill bg="danger">
@@ -300,7 +300,6 @@ const Homegpage = () => {
                 className="card-job"
                 key={index}
                 style={{
-                  width: "18rem",
                   marginBottom: "20px",
                   boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
                 }}

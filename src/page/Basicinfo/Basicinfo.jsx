@@ -67,7 +67,6 @@ const Basicinfo = () => {
 
   useEffect(() => {
     fetchProfile();
-    fetch();
   }, []);
 
   const fetchProfile = (formData) => {
@@ -76,7 +75,7 @@ const Basicinfo = () => {
       method: "GET",
       body: formData,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
       },
     })
       .then((res) => res.json())
@@ -85,27 +84,6 @@ const Basicinfo = () => {
         console.log(data);
       });
   };
-
-  //   const fetchGetSkill = () => {
-  //     // const payload = {...user}
-  //     // payload.languages = payload.languages.join (",")
-  //     console.log(user);
-  //     fetch(`http://localhost:8000/api/skill`, {
-  //       method: "GET",
-  //       // body: JSON.stringify(payload),
-  //       headers: { "Content-Type": "application/json;charset=utf-8" },
-  //     })
-  //       .then((res) => {
-  //         return res.json();
-  //       })
-  //       .then((data) => {
-  //         dispatch(setUserData({ user: data?.user, token: data?.token }));
-
-  //         createItem(data);
-  //         setSkill(data);
-  //         console.log(data);
-  //       });
-  //   };
 
   // masuk database
   const fetchInfo = () => {
@@ -116,7 +94,7 @@ const Basicinfo = () => {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc1YjM1MjQ2NmVhZGRmZDg4NTk2NTgiLCJmdWxsX25hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImN1c3RvbWVyX2lkIjo4LCJpYXQiOjE2ODU0MzUyMzZ9.h8xEhVgSJ1I1psZqPfNRDscyeKKmWN5kpRI_9JI5uCQ`,
         Accept: "application/json",
         "Content-Type": "application/json;charset=utf-8",
       },
