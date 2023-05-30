@@ -32,7 +32,7 @@ import foto from "./user.png";
 import Table from "react-bootstrap/Table";
 import { faBitbucket } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../../Component/Footer";
-import logolk from "../../Component/lk.png"
+import logolk from "../../Component/lk.png";
 import Pdf from "../../Component/Pdfview/Pdf";
 import swal from "sweetalert";
 
@@ -107,6 +107,21 @@ const Profilepage = () => {
   };
 
   const removeSelectedImage = () => {
+    setSelectedImage();
+  };
+
+  const imageChangeCv = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+    }
+  };
+
+  const onSubmitCv = (e) => {
+    e.preventDefault();
+    alert(URL.createObjectURL(selectedImage));
+  };
+
+  const removeSelectedImageCv = () => {
     setSelectedImage();
   };
 
@@ -311,7 +326,7 @@ const Profilepage = () => {
       <Navbar className="nav-portal" expand="lg">
         <Container>
           <Navbar.Brand href="#">
-          <img
+            <img
               src={logolk}
               width="35"
               height="30"
@@ -413,111 +428,118 @@ const Profilepage = () => {
           </Card.Header>
           <Card.Body className="card-profilecenter">
             <div className="box-1">
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              {selectedImage && (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <img
-                    src={URL.createObjectURL(selectedImage)}
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                {selectedImage && (
+                  <div
                     style={{
-                      maxWidth: "100%",
-                      borderRadius: "50%",
+                      display: "flex",
                       justifyContent: "center",
-                      maxHeight: "180px",
+                      flexDirection: "column",
                     }}
-                    alt="Thumb"
-                  />
-                </div>
-              )}
-            </div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <button
-                onClick={removeSelectedImage}
-                style={{
-                  justifyContent: "center",
-                  background: "red",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "10px",
-                  cursor: "pointer",
-                }}
-              >
-                <FontAwesomeIcon style={{ fontSize: "18px" }} icon={faRemove} />
-              </button>
-            </div>
-            <div className="parent-imgprofile">
-              <form onSubmit={onSubmit} className="form-inline">
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <input
-                    type="file"
-                    style={{
-                      color: "transparent",
-                      maxWidth: "100%",
-                      marginLeft: "33%",
-                      marginTop: "10px",
-                    }}
-                    onChange={imageChange}
-                    accept="image/*"
-                  />
-                </div>
-                <span
+                  >
+                    <img
+                      src={URL.createObjectURL(selectedImage)}
+                      style={{
+                        maxWidth: "100%",
+                        borderRadius: "50%",
+                        justifyContent: "center",
+                        maxHeight: "180px",
+                      }}
+                      alt="Thumb"
+                    />
+                  </div>
+                )}
+              </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <button
+                  onClick={removeSelectedImage}
                   style={{
-                    fontStyle: "italic",
-                    color: "red",
-                    fontSize: "12px",
-                    marginLeft: "20%",
+                    justifyContent: "center",
+                    background: "red",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "10px",
+                    cursor: "pointer",
                   }}
                 >
-                  *masukan foto dengan ukuran 1:1
-                </span>
-              </form>
-            </div>
-
-            <Card.Text className="isi">{profile.full_name}</Card.Text>
-            <Card.Text className="isi">{profile.email}</Card.Text>
-            <Form.Label>
-              <strong>About me</strong>
-              <FontAwesomeIcon
-                onClick={() => goToTambahriwayat()}
-                style={{ marginLeft: "10px", cursor: "pointer" }}
-                icon={faPen}
-              />
-            </Form.Label>
-            {about.map((item, index) => (
-              <div key={index}>
-                <Card.Text className="isi">{item.name}</Card.Text>
-              </div>
-            ))}
-            <Form onSubmit={onSubmitHandler}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>
-                  <strong>Skill</strong>
                   <FontAwesomeIcon
-                    onClick={() => goToTambahskill()}
-                    style={{ marginLeft: "10px", cursor: "pointer" }}
-                    icon={faPen}
+                    style={{ fontSize: "18px" }}
+                    icon={faRemove}
                   />
-                </Form.Label>
-              </Form.Group>
-              <div className="skill">
-                {skill?.map((item, index) => (
-                  <div key={index}>
-                    <Button className="btn-skill" type="reset">
-                      {item.name}
-                    </Button>
-                  </div>
-                ))}
+                </button>
               </div>
-            </Form>
+              <div className="parent-imgprofile">
+                <form onSubmit={onSubmit} className="form-inline">
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <input
+                      type="file"
+                      style={{
+                        color: "transparent",
+                        maxWidth: "100%",
+                        marginLeft: "33%",
+                        marginTop: "10px",
+                      }}
+                      onChange={imageChange}
+                      accept="image/*"
+                    />
+                  </div>
+                  <span
+                    style={{
+                      fontStyle: "italic",
+                      color: "red",
+                      fontSize: "12px",
+                      marginLeft: "20%",
+                    }}
+                  >
+                    *masukan foto dengan ukuran 1:1
+                  </span>
+                </form>
+              </div>
 
-            <Button onClick={() => handleSave()} type="submit" className="btn-save">
-              Simpan
-            </Button>
+              <Card.Text className="isi">{profile.full_name}</Card.Text>
+              <Card.Text className="isi">{profile.email}</Card.Text>
+              <Form.Label>
+                <strong>About me</strong>
+                <FontAwesomeIcon
+                  onClick={() => goToTambahriwayat()}
+                  style={{ marginLeft: "10px", cursor: "pointer" }}
+                  icon={faPen}
+                />
+              </Form.Label>
+              {about.map((item, index) => (
+                <div key={index}>
+                  <Card.Text className="isi">{item.name}</Card.Text>
+                </div>
+              ))}
+              <Form onSubmit={onSubmitHandler}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>
+                    <strong>Skill</strong>
+                    <FontAwesomeIcon
+                      onClick={() => goToTambahskill()}
+                      style={{ marginLeft: "10px", cursor: "pointer" }}
+                      icon={faPen}
+                    />
+                  </Form.Label>
+                </Form.Group>
+                <div className="skill">
+                  {skill?.map((item, index) => (
+                    <div key={index}>
+                      <Button className="btn-skill" type="reset">
+                        {item.name}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </Form>
+
+              <Button
+                onClick={() => handleSave()}
+                type="submit"
+                className="btn-save"
+              >
+                Simpan
+              </Button>
             </div>
           </Card.Body>
         </Card>
@@ -541,15 +563,16 @@ const Profilepage = () => {
                 icon={faPen}
               />
             </Card.Title>
-              {info.map((item, index) => (
-                 <div key={index}>
-                 <Card.Text>USIA : {item.usia}</Card.Text>
-                 <Card.Text>PHONE : {item.hp}</Card.Text>
-                 <Card.Text>EMAIL : {item.email}</Card.Text>
-               </div>
-              ))}
-              {/* <hr /> */}
-            {/* <Pdf /> */}
+            {info.map((item, index) => (
+              <div key={index}>
+                <Card.Text>USIA : {item.usia}</Card.Text>
+                <Card.Text>PHONE : {item.hp}</Card.Text>
+                <Card.Text>EMAIL : {item.email}</Card.Text>
+              </div>
+            ))}
+            {/* <hr /> */}
+            <Pdf />
+            
             <hr />
             <Card.Title>
               <strong>Work Experience</strong>
@@ -585,7 +608,6 @@ const Profilepage = () => {
             ))}
           </Card.Body>
           <Card.Footer className="footer-profile">Hello User !</Card.Footer>
-
         </Card>
       </div>
       {/* </div> */}
